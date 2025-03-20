@@ -42,7 +42,7 @@ The Fall Risk Prediction API is a project that uses synthetic data to predict a 
     ```
 
 ### Usage 
-1. **Run the application: **
+1. **Run the application:**
     ```
     python app.py
     ```
