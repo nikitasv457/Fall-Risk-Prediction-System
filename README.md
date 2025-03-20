@@ -43,10 +43,38 @@ The Fall Risk Prediction API is a project that uses synthetic data to predict a 
 
 ### Usage 
 1. **Run the application:**
+
     ```
     python app.py
     ```
 #### This will start the Flask development server (by default on ``` http://127.0.0.1:5000/``` ).
 
+2. Access the Web Interface:
 
+- Open your web browser and navigate to:
+- Home Page: ```http://127.0.0.1:5000/``` 
+- This page contains buttons to trigger a sample prediction and to display model evaluation scores.
+- API Endpoints:
+    - GET ```/predict_sample```: Returns a risk prediction for a predefined (first row for this model) synthetic sample.
+    - GET ```/scores```: Returns model evaluation metrics (accuracy, precision, recall, F1-score) as JSON.
+
+### API Endpoints
+- Home Page (```/```):
+    - Provides a simple interface with two buttons:
+
+        - Predict using Sample Data: Triggers the ```/predict_sample``` endpoint.
+        - Show Scores: Triggers the ```/scores``` endpoint.
+
+    - GET ```/predict_sample```:
+    - Returns a JSON response with:
+        - risk_level: Numeric risk prediction.
+        - risk_label: Descriptive risk label (Low Risk, Medium Risk, High Risk).
+        - sample_data: The synthetic data sample used for the prediction.
+    
+    - GET ```/scores```:
+            - Returns a JSON object with the model's evaluation metrics:
+                - accuracy
+                - Precision
+                - Recall
+                - F1-score 
 
