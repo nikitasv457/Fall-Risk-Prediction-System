@@ -1,4 +1,4 @@
-# Fall Risk Prediction API
+# Fall Risk Prediction System
 
 The Fall Risk Prediction API is a project that uses synthetic data to predict a patient's fall risk based on vital signs and movement patterns. The project leverages Python, scikit-learn, and Flask to build a multiclass classification model (predicting Low, Medium, or High Risk) and exposes REST API endpoints for making predictions and displaying evaluation metrics (Accuracy, Precision, Recall, and F1-score).
 
@@ -63,13 +63,13 @@ The Fall Risk Prediction API is a project that uses synthetic data to predict a 
     - Provides a simple interface with two buttons:
 
         - Predict using Sample Data: Triggers the ```/predict_sample``` endpoint.
-        - Show Scores: Triggers the ```/scores``` endpoint.
+        - Displays Scores: Triggers the ```/scores``` endpoint.
 
     - GET ```/predict_sample```:
-    - Returns a JSON response with:
-        - risk_level: Numeric risk prediction.
-        - risk_label: Descriptive risk label (Low Risk, Medium Risk, High Risk).
-        - sample_data: The synthetic data sample used for the prediction.
+        - Returns a JSON response with:
+            - risk_level: Numeric risk prediction.
+            - risk_label: Descriptive risk label (Low Risk, Medium Risk, High Risk).
+            - sample_data: The synthetic data sample used for the prediction.
     
     - GET ```/scores```:
             - Returns a JSON object with the model's evaluation metrics:
