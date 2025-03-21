@@ -2,13 +2,12 @@ import numpy as np
 import pandas as pd
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import joblib
 from flask import Flask, request, jsonify
 from sklearn.linear_model import LogisticRegression
 
-# 1. Synthetic data features
+# Synthetic data features
 feature_names = [
     'heart_rate',            # Patient's heart rate
     'blood_pressure',        # Patient's blood pressure
@@ -23,8 +22,8 @@ X, y = make_classification(
     n_features=len(feature_names),  # Number of features matches our defined list
     n_informative=4,          # 4 of these features are informative for classification
     n_redundant=0,            # No redundant features are generated
-    n_classes=3,              # Two classes: e.g., 0 (Low Risk) and 1 (Medium Risk) and 2 (High Risks)
-    random_state=42           # Seed for reproducibility
+    n_classes=3,              # Two classes: ex. 0 (Low Risk) and 1 (Medium Risk) and 2 (High Risks)
+    # random_state=42           # Seed for reproducibility
 )
 
 # Creates a DataFrame to organize the synthetic features with proper column names
@@ -71,8 +70,6 @@ print(f"F1-score :  {f1}")
 joblib.dump(model, 'fall_risk_model.pkl')
 print("Model saved as fall_risk_model.pkl")
 
-
-
 app = Flask(__name__)           # New instance of Flask class
 
 # Home route  
@@ -104,7 +101,7 @@ def index():
                 'Accuracy: ' + result.accuracy.toFixed(4) + '<br>' +
                 'Precision: ' + result.precision.toFixed(4) + '<br>' +
                 'Recall: ' + result.recall.toFixed(4) + '<br>' +
-                'F1 Score: ' + result.f1.toFixed(4);
+                'F1-score: ' + result.f1.toFixed(4);
             } catch (error) {
                 document.getElementById('scoreResult').innerText = 'Error: ' + error;
             }
@@ -113,8 +110,8 @@ def index():
         </script>
       </head>
       
-        <body style="background-color: rgb(231, 255, 224);">   
-            <h1 style="color: rgb(18, 43, 36);">Fall Risk Prediction using Synthetic Data</h1>  <!-- Dark green header -->
+        <body style="background-color: rgb(231, 255, 224); text-align: center;">   
+            <h1 style="color: rgb(18, 43, 36);">Fall Risk Prediction</h1>  <!-- Dark green header -->
             <button onclick="predictSample()" style="background-color: rgb(14, 125, 62); color: white; padding: 10px; border: none; border-radius: 5px;">
                 Predict using Sample Data
             </button>
